@@ -1,13 +1,24 @@
 from random import gauss
 import numpy as np
 from pyparsing import col
-from sympy import false
+#from sympy import false
 
 def print_matrix(mat_left, mat_right):
-    for i in range(len(mat_left)):
-        print(mat_left[i], '\t\t', mat_right[i])
 
-    print('\n')
+    for i in range(mat_left.shape[0]):
+        print("[", end='')
+        for j in range(mat_left.shape[1]-1):
+            print("{0:.2f}".format(mat_left.item(i * len(mat_left) + j)), end='\t')
+        print("{0:.2f}".format(mat_left.item(i * len(mat_left) + mat_left.shape[1]-1)), end='')
+        print("]", end='\t')
+
+        print("[", end='')
+        for j in range(mat_right.shape[1]-1):
+            print("{0:.2f}".format(mat_right.item(i * len(mat_right) + j)), end='\t')
+        print("{0:.2f}".format(mat_right.item(i * len(mat_right) + mat_right.shape[1]-1)), end='')
+        print("]")
+
+    print()
 
 def gauss_jordan(matrix, amp):
     
