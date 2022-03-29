@@ -34,14 +34,16 @@ def gauss_jordan(matrix, amp):
     
     # Diagonalización
 
-    for n in range(filas-1, 0, -1):
-        amp[n-1] = amp[n-1] - amp[n] * matrix[n, n-1]
-        matrix[n-1] = matrix[n-1] - matrix[n] * matrix[n, n-1]
-        print_matrix(matrix, amp)
-
+    for n in range(filas)[::-1]:
+        for i in range(1, n+1):
+            amp[n-i] = amp[n-i] - amp[n] * matrix[n-i, n]
+            matrix[n-i] = matrix[n-i] - matrix[n] * matrix[n-i, n]
+            print_matrix(matrix, amp)
+        
 
 if __name__=='__main__':
     matriz = np.matrix([[1., 3., 2.], [3., 1., 6.], [7., 2., 9.]])
     identidade = np.matrix([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]])
     print(matriz, '\n')
+    inv = np.linalg.inv(matriz)
     gauss_jordan(matriz, identidade)
