@@ -3,4 +3,4 @@
 Diagonalización realizada.
 Resolve a matriz que lle indiques no código.
 
-*nota: intentar imprimir as matrices dunha maneira algo mais decente*
+*incluir entrada de parametros por terminal*
