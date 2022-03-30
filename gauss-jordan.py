@@ -1,10 +1,15 @@
+from cv2 import MARKER_CROSS
 import numpy as np
-from IPython.display import display
+import pandas as pd
+from pyparsing import col
 
 def print_matrix(mat_left, mat_right):
+    a = []
     for i in range(len(mat_left)):
-        display(mat_left[i], mat_right[i])
-
+        a.append('|')
+    df = pd.DataFrame(mat_left)
+    df2 = pd.concat([df, pd.DataFrame(['|', '|', '|']), pd.DataFrame(mat_right)], axis=1)
+    print(df2)
     print('\n')
 
 def gauss_jordan(matrix, amp):
@@ -42,6 +47,7 @@ def gauss_jordan(matrix, amp):
 if __name__=='__main__':
     matriz = np.matrix([[1., 3., 2.], [3., 1., 6.], [7., 2., 9.]])
     identidade = np.matrix([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]])
-    print(matriz, '\n')
+    ter_ind = np.matrix([[1.], [2.], [6.]])
+    print_matrix(matriz, ter_ind)
     inv = np.linalg.inv(matriz)
-    gauss_jordan(matriz, identidade)
+    gauss_jordan(matriz, ter_ind)
