@@ -1,7 +1,5 @@
-from cv2 import MARKER_CROSS
 import numpy as np
 import pandas as pd
-from pyparsing import col
 
 def print_matrix(mat_left, mat_right):
     a = []
