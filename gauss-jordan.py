@@ -1,11 +1,9 @@
-from random import gauss
 import numpy as np
-from pyparsing import col
-from sympy import false
+from IPython.display import display
 
 def print_matrix(mat_left, mat_right):
     for i in range(len(mat_left)):
-        print(mat_left[i], '\t\t', mat_right[i])
+        display(mat_left[i], mat_right[i])
 
     print('\n')
 
